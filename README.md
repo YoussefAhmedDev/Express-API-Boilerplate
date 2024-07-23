@@ -7,13 +7,20 @@ This is an Express API Boilerplate built using Bun, Express.js, Typescript and Z
 1. Clone the repository:
 
 ```bash
- git clone https://github.com/youssefffahmedd/Express-API-Boilerplate.git
+git clone https://github.com/youssefffahmedd/Express-API-Boilerplate.git
 ```
 
 2. Install dependencies:
 
 ```bash
- bun install
+bun install
+```
+
+3. Create .env file & paste the code below:
+```
+PORT=<port-number>
+
+DATABASE_URL=<mongodb-url>
 ```
 
 ## Usage
