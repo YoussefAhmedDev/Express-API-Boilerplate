@@ -39,4 +39,5 @@ jobs:
         with:
           title: "chore: auto-update packages"
           body: "Automated package updates via GitHub Actions."
+          branch: "main"
           labels: "dependencies, automated"
