@@ -26,7 +26,7 @@ jobs:
           bun update
 
       - name: Commit Changes
-        if: ${{ github.ref == "refs/heads/main" }}  # Only run on the main branch
+        if: github.ref == 'refs/heads/main'  # Only run on the main branch
         run: |
           git config --global user.name "YoussefAhmedDev"
           git config --global user.email "ya107231@gmail.com"
