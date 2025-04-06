@@ -10,10 +10,10 @@ This is an Express API Boilerplate built using Bun, Express.js, Typescript, Zod 
 git clone https://github.com/YoussefAhmedDev/Express-API-Boilerplate.git
 ```
 
-2. Install dependencies:
+2. Update package list & install dependencies:
 
 ```bash
-bun install
+bun update --latest
 ```
 
 3. Create .env file & paste the code below:
