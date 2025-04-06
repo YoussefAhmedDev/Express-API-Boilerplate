@@ -1,0 +1,44 @@
+name: Auto-Update Packages
+on:
+  schedule:
+    # Run daily at 5 AM UTC (adjust cron syntax as needed)
+    - cron: "0 5 * * *"
+  workflow_dispatch:  # Optional: Allow manual triggering
+
+jobs:
+  update-packages:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Allow pushing changes
+      pull-requests: write  # Allow creating PRs
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun
+        with:
+          bun-version: latest  # Or pin to a specific version
+
+      - name: Update Dependencies
+        run: |
+          bun update
+
+      - name: Commit Changes
+        if: github.ref == "refs/heads/main"  # Only run on the main branch
+        run: |
+          git config --global user.name "YoussefAhmedDev"
+          git config --global user.email "ya107231@gmail.com"
+          git checkout -b chore/auto-update-packages-$(date +%s)
+          git add package.json bun.lockb
+          git commit -m "chore: auto-update packages"
+          git push origin HEAD
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request
+        with:
+          title: "chore: auto-update packages"
+          body: "Automated package updates via GitHub Actions."
+          branch: "chore/auto-update-packages"
+          labels: "dependencies, automated"
