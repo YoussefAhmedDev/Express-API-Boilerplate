@@ -7,7 +7,7 @@ This is an Express API Boilerplate built using Bun, Express.js, Typescript, Zod 
 1. Clone the repository:
 
 ```bash
-git clone [https://github.com/YoussefAhmedDev/Express-API-Boilerplate.git](https://github.com/YoussefAhmedDev/Express-API-Boilerplate)
+git clone https://github.com/YoussefAhmedDev/Express-API-Boilerplate.git
 ```
 
 2. Install dependencies:
