@@ -9,8 +9,8 @@ jobs:
   update-packages:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # Allow pushing changes
-      pull-requests: write  # Allow creating PRs
+      contents: write
+      pull-requests: write
 
     steps:
       - name: Checkout Repository
@@ -19,18 +19,17 @@ jobs:
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
-          bun-version: latest  # Or pin to a specific version
+          bun-version: latest
 
       - name: Update Dependencies
         run: |
-          bun update
+          bun update --latest
 
       - name: Commit Changes
-        if: github.ref == 'refs/heads/main'  # Only run on the main branch
+        if: github.ref == 'refs/heads/main'
         run: |
           git config --global user.name "YoussefAhmedDev"
           git config --global user.email "ya107231@gmail.com"
-          git checkout -b chore/auto-update-packages-$(date +%s)
           git add package.json bun.lockb
           git commit -m "chore: auto-update packages"
           git push origin HEAD
@@ -40,5 +39,4 @@ jobs:
         with:
           title: "chore: auto-update packages"
           body: "Automated package updates via GitHub Actions."
-          branch: "chore/auto-update-packages"
           labels: "dependencies, automated"
