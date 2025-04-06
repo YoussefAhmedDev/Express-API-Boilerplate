@@ -1,6 +1,6 @@
 # Express API Boilerplate
 
-This is an Express API Boilerplate built using Bun, Express.js, Typescript and Zod for data validation.
+This is an Express API Boilerplate built using Bun, Express.js, Typescript, Zod for data validation & MongoDB.
 
 ## Installation
 
